@@ -65,19 +65,19 @@
   const app = initializeApp(firebaseConfig);
  
 
-    const d  = new Date();
-    const datestring = d.getFullYear()+"-"+
+    var d  = new Date();
+    var datestring = d.getFullYear()+"-"+
                     ("0"+(d.getMonth()+1)).slice(-2)+ "-"+
                     ("0" + d.getDate()).slice(-2) ;
-  const refR = firebase.database().ref().child(datestring);
+  var refR = firebase.database().ref().child(datestring);
   refR.on("child_added",snap=>{
-    const name = snap.child("Name").val();
-    const time = snap.child("Time").val();
+    var name = snap.child("Name").val();
+    var time = snap.child("Time").val();
     //console.log(name);
-    const table = document.getElementById("main_table");
-    const row = table.insertRow(-1);
-    const cell1 = row.insertCell(-1);
-    const cell2 = row.insertCell(-1);
+    var table = document.getElementById("main_table");
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(-1);
+    var cell2 = row.insertCell(-1);
     cell1.innerHTML = name;
     cell2.innerHTML = time;
   });
